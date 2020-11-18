@@ -8,9 +8,12 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  background: var(--color-white);
-  color: var(--color-black);
+  background: var(--color-off-black);
+  color: var(--color-off-white);
   margin: 0;
+}
+h3{
+  font-family: 'Playfair Display', serif;
 }
 
 html,

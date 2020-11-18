@@ -1,11 +1,30 @@
 @import '../styles/custom-media.css';
 @import '../styles/custom-properties.css';
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 /*
  * Statically sized elements
  */
+ .articletitle {
+  font-weight: 600;
+  font-size: var(--font-large-size);
+  line-height: var(--font-large-line-height);
+  margin: 1rem 0 0.5rem;
+  font-family: 'Playfair Display', serif;
+
+  @media (--media-min-small) {
+    font-size: var(--font-large-size);
+    line-height: var(--font-large-line-height);
+  }
+
+  @media (--media-min-medium) {
+    font-size: var(--font-title3-size);
+    line-height: var(--font-title3-line-height);
+  }
+}
+
+
 
 .title1 {
   font-size: var(--font-title1-size);
@@ -20,6 +39,7 @@
 .title3 {
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
+  
 }
 
 .large {
@@ -81,8 +101,8 @@
   }
 
   @media (--media-min-medium) {
-    font-size: var(--font-title1-size);
-    line-height: var(--font-title1-line-height);
+    font-size: var(--font-title-main-size);
+    line-height: var(--font-title-main-line-height);
   }
 }
 
@@ -108,6 +128,7 @@
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
   margin: 1.5rem 0 0.5rem;
+  
 
   @media (--media-min-small) {
     font-size: var(--font-title3-size);

@@ -1,15 +1,17 @@
 @import '../styles/custom-media.css';
 @import '../styles/custom-properties.css';
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display&display=swap');
+
 
 .root {
   margin: 2em 0 4em;
 }
 
 .headline {
+  font-family: 'Playfair Display', serif;
   font-size: var(--font-micro-size);
   line-height: var(--font-micro-line-height);
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 2rem 0;
 }

@@ -6,7 +6,7 @@ import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
 
 import styles from './blog-post-preview.module.css'
-import {responsiveTitle3} from './typography.module.css'
+import {articletitle} from './typography.module.css'
 
 function BlogPostPreview (props) {
   return (
@@ -27,7 +27,7 @@ function BlogPostPreview (props) {
         )}
       </div>
       <div className={styles.text}>
-        <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+        <h3 className='{styles.articletitle}'>{props.title}</h3>
         {props._rawExcerpt && (
           <div className={styles.excerpt}>
             <PortableText blocks={props._rawExcerpt} />

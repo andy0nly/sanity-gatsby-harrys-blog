@@ -26,4 +26,7 @@
   --font-title2-line-height: calc(33 / 24); /* 33px */
   --font-title1-size: calc(49 / var(--unit) * 1rem); /* 49px */
   --font-title1-line-height: calc(57 / 49); /* 57px */
+
+  --font-title-main-size: calc(96 / var(--unit) * 1rem); 
+  --font-title-main-line-height: calc(96 / 57);
 }

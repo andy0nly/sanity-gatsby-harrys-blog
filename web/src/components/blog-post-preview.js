@@ -8,20 +8,10 @@ import arrowIcon from './icon/arrow.svg'
 
 import styles from './blog-post-preview.module.css'
 import {articletitle} from './typography.module.css'
-import { motion } from "framer-motion"
 
 
 function BlogPostPreview (props) {
-  const pageTransition = {
-    in: {
-    opacity:1,
-    x:0
-    },
-    out: {
-    opacity:0,
-    x: "-100vw"
-    }
-    };
+
   return (
     <Link
   

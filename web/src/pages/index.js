@@ -71,20 +71,6 @@ export const query = graphql`
         }
       }
     }
-    feature: allSanityFeature(limit: 1) {
-    edges {
-      node {
-        id
-        mainImage {
-          alt
-        }
-        title
-        slug {
-          current
-        }
-      }
-    }
-  }
   }
 `
 

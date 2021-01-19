@@ -12,16 +12,16 @@ export default {
                 'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
-                  buildHookId: '5fb4c36f459cf544b1c73c26',
+                  buildHookId: '<#<deployments.studio.providerInfo.buildHookId>#>',
                   title: 'Sanity Studio',
-                  name: 'sanity-gatsby-harrys-blog-studio',
-                  apiId: '658e8f1e-9e7b-4422-bae7-6646ebdd04f5'
+                  name: '<#<deployments.studio.providerInfo.siteName>#>',
+                  apiId: '<#<deployments.studio.providerInfo.siteId>#>'
                 },
                 {
-                  buildHookId: '5fb4c36f3877744b5da71e36',
+                  buildHookId: '<#<deployments.web.providerInfo.buildHookId>#>',
                   title: 'Blog Website',
-                  name: 'sanity-gatsby-harrys-blog',
-                  apiId: '470cb1e8-eb7c-4be3-b86b-6885231af8a2'
+                  name: '<#<deployments.web.providerInfo.siteName>#>',
+                  apiId: '<#<deployments.web.providerInfo.siteId>#>'
                 }
               ]
             }
@@ -30,10 +30,10 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/andy0nly/sanity-gatsby-harrys-blog',
+            value: 'https://github.com/<#<repository.owner>#>/<#<repository.name>#>',
             category: 'Code'
           },
-          { title: 'Frontend', value: 'https://sanity-gatsby-harrys-blog.netlify.app', category: 'apps' }
+          { title: 'Frontend', value: '<#<deployments.web.url>#>', category: 'apps' }
         ]
       }
     },

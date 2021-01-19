@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "Harrys HiFi Blog"
+    "name": "Harrys HiFi"
   },
   "api": {
     "projectId": "iozpmlpu",
@@ -19,8 +19,7 @@
     "dashboard-widget-netlify",
     "@sanity/studio-hints"
   ],
-  "parts": [
-    {
+  "parts": [{
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema.js"
     },
@@ -39,10 +38,6 @@
     {
       "implements": "part:@sanity/default-layout/studio-hints-config",
       "path": "./src/studioHintsConfig.js"
-    },
-    {
-      "implements": "part:@sanity/base/brand-logo",
-      "path": "./static/myLogo.js"
     }
   ]
 }

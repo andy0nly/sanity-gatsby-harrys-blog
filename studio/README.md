@@ -1,1 +1,1 @@
-# sanity-gatsby-harrys-blog-studio
+# <#< repository.name >#>-studio

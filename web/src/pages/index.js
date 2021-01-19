@@ -17,9 +17,6 @@ import FeatureProductPreviewGrid from '../components/feature-product-preview-gri
 import beolit from '../static/beolit20.jpg'
 import arrowIcon from '../components/icon/arrowdark.svg'
 
-
-
-
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
     crop {
@@ -74,7 +71,6 @@ export const query = graphql`
   }
 `
 
-
 const IndexPage = props => {
   const {data, errors} = props
 
@@ -109,18 +105,18 @@ const IndexPage = props => {
       />
       <Container>
         <div className={styles.titleGrid}>
-          <h1 className={responsiveTitleMain}>Regina’s <br />High-End <br />Audio Store</h1> 
-         <div className={styles.featureBox}>
-         <div className={styles.productImgOuter}>
-         <img src={beolit} className={styles.productImg}/>
-         </div>
-         <div className={styles.articletitle}>
-          <p>Feature Product:</p>
-           </div>
-           <p>Bang & Olufsen Beolit 20 </p>
-         </div>
+          <h1 className={responsiveTitleMain}>Regina’s <br />High-End <br />Audio Store</h1>
+          <div className={styles.featureBox}>
+            <div className={styles.productImgOuter}>
+              <img src={beolit} className={styles.productImg} />
+            </div>
+            <div className={styles.articletitle}>
+              <p>Feature Product:</p>
+            </div>
+            <p>Bang & Olufsen Beolit 20 </p>
           </div>
-      
+        </div>
+
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
 

@@ -6,7 +6,9 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import FeatureProductPreviewGrid from '../components/feature-product-preview-grid'
 
+import {titleGrid} from '../components/feature-product-preview.module.css'
 import {responsiveTitleMain} from '../components/typography.module.css'
 
 export const query = graphql`
@@ -31,6 +33,21 @@ export const query = graphql`
         }
       }
     }
+feature: allSanityFeature(limit: 1) {
+    edges {
+      node {
+        id
+        mainImage {
+          alt
+        }
+        title
+        slug {
+          current
+        }
+      }
+    }
+  }
+
   }
 `
 
@@ -46,12 +63,16 @@ const ArchivePage = props => {
   }
 
   const postNodes = data && data.posts && mapEdgesToNodes(data.posts)
+  const featureNodes = data && data.feature && mapEdgesToNodes(data.feature)
 
   return (
     <Layout>
-      <SEO title='Archive' />
+      <SEO title='' />
       <Container>
-        <h1 className={responsiveTitleMain}>Regina’s <br/>High-End <br/>Audio Store</h1>
+        <div className={titleGrid}>
+          <h1 className={responsiveTitleMain}>Regina’s <br />High-End <br />Audio Store</h1>
+          {featureNodes && featureNodes.length > 0 && <FeatureProductPreviewGrid nodes={featureNodes} />}
+        </div>
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </Layout>

@@ -4,6 +4,7 @@
 .root {
   position: relative;
   z-index: 100;
+
 }
 
 .wrapper {
@@ -34,6 +35,9 @@
       }
     }
   }
+}
+.branding img{
+  max-width: 120px;
 }
 
 .toggleNavButton {

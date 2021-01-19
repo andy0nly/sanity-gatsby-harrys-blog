@@ -1,46 +1,21 @@
 import {format} from 'date-fns'
 import {Link} from 'gatsby'
 import React from 'react'
-import {buildImageObj, cn, getBlogUrl} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
 import arrowIcon from './icon/arrow.svg'
 
 import styles from './blog-post-preview.module.css'
 import {articletitle} from './typography.module.css'
-import { motion } from "framer-motion"
 
 
-function BlogPostPreview (props) {
-  const pageTransition = {
-    in: {
-    opacity:1,
-    x:0
-    },
-    out: {
-    opacity:0,
-    x: "-100vw"
-    }
-    };
+function LatestPostsList (props) {
+
   return (
     <Link
-  
       className={props.isInList ? styles.inList : styles.inGrid}
       to={getBlogUrl(props.publishedAt, props.slug.current)}
     >
-      <div className={styles.leadMediaThumb}>
-        {props.mainImage && props.mainImage.asset && (
-          <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
-              .auto('format')
-              .url()}
-            alt={props.mainImage.alt}
-          />
-         
-        )}
-      </div>
+     
       <div className={styles.text}>
         <h3 className='{styles.articletitle}'>{props.title}</h3>
 
@@ -49,7 +24,7 @@ function BlogPostPreview (props) {
           <div className={styles.excerpt}>
 
             <PortableText blocks={props._rawExcerpt} />
-            <p className={styles.rightalign}>Read more <img src={arrowIcon}></img></p>
+            
           </div>
         )}
         {/* <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div> */}
@@ -60,4 +35,4 @@ function BlogPostPreview (props) {
 
 }
 
-export default BlogPostPreview
+export default LatestPostsList

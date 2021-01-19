@@ -10,6 +10,15 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import styles from '../components/feature-product-preview.module.css'
+import {responsiveTitleMain} from '../components/typography.module.css'
+import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
+import FeatureProductPreviewGrid from '../components/feature-product-preview-grid'
+import beolit from '../static/beolit20.jpg'
+import arrowIcon from '../components/icon/arrowdark.svg'
+
+
+
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -33,6 +42,7 @@ export const query = graphql`
       _id
     }
   }
+
 
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
@@ -61,8 +71,23 @@ export const query = graphql`
         }
       }
     }
+    feature: allSanityFeature(limit: 1) {
+    edges {
+      node {
+        id
+        mainImage {
+          alt
+        }
+        title
+        slug {
+          current
+        }
+      }
+    }
+  }
   }
 `
+
 
 const IndexPage = props => {
   const {data, errors} = props
@@ -81,6 +106,7 @@ const IndexPage = props => {
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
+  const featureNodes = data && data.feature && mapEdgesToNodes(data.feature)
 
   if (!site) {
     throw new Error(
@@ -96,15 +122,22 @@ const IndexPage = props => {
         keywords={site.keywords}
       />
       <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
-        {postNodes && (
-          <BlogPostPreviewList
-            title='Latest blog posts'
-            nodes={postNodes}
-            browseMoreHref='/archive/'
-          />
-        )}
+        <div className={styles.titleGrid}>
+          <h1 className={responsiveTitleMain}>Regina’s <br />High-End <br />Audio Store</h1> 
+         <div className={styles.featureBox}>
+         <div className={styles.productImgOuter}>
+         <img src={beolit} className={styles.productImg}/>
+         </div>
+         <div className={styles.articletitle}>
+          <p>Feature Product:</p>
+           </div>
+           <p>Bang & Olufsen Beolit 20 </p>
+         </div>
+          </div>
+      
+        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
+
     </Layout>
   )
 }

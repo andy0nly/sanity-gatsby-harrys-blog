@@ -8,27 +8,15 @@ import arrowIcon from './icon/arrow.svg'
 
 import styles from './blog-post-preview.module.css'
 import {articletitle} from './typography.module.css'
-import { motion } from "framer-motion"
 
-
-function BlogPostPreview (props) {
-  const pageTransition = {
-    in: {
-    opacity:1,
-    x:0
-    },
-    out: {
-    opacity:0,
-    x: "-100vw"
-    }
-    };
+function BlogPostPreviewTopRow (props) {
+   
   return (
     <Link
-  
       className={props.isInList ? styles.inList : styles.inGrid}
       to={getBlogUrl(props.publishedAt, props.slug.current)}
     >
-      <div className={styles.leadMediaThumb}>
+      <div className={styles.leadMediaThumbTop}>
         {props.mainImage && props.mainImage.asset && (
           <img
             src={imageUrlFor(buildImageObj(props.mainImage))
@@ -42,22 +30,19 @@ function BlogPostPreview (props) {
         )}
       </div>
       <div className={styles.text}>
-        <h3 className='{styles.articletitle}'>{props.title}</h3>
-
-        {props._rawExcerpt && ( 
-          
+        <h3 className={styles.articletitle}>{props.title}</h3>
+        {props._rawExcerpt && (
           <div className={styles.excerpt}>
-
-            <PortableText blocks={props._rawExcerpt} />
+            <PortableText blocks={props._rawExcerpt}/>
             <p className={styles.rightalign}>Read more <img src={arrowIcon}></img></p>
+
           </div>
         )}
         {/* <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div> */}
       </div>
     </Link>
   )
-
-
+  
 }
 
-export default BlogPostPreview
+export default BlogPostPreviewTopRow
